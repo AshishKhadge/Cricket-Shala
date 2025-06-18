@@ -41,8 +41,8 @@ function cursorSqueeze() {
         var xdiff = dets.clientX - xprev
         var ydiff = dets.clientY - yprev
 
-        xscale = gsap.utils.clamp(0.7, 1.3, xdiff)
-        yscale = gsap.utils.clamp(0.7, 1.3, ydiff)
+        xscale = gsap.utils.clamp(0.8, 1.2, xdiff)
+        yscale = gsap.utils.clamp(0.8, 1.2, ydiff)
 
         xprev = dets.clientX
         yprev = dets.clientY
