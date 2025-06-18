@@ -77,7 +77,7 @@ document.querySelectorAll(".elem").forEach(function (elem) {
             duration: 0.5
         })
         gsap.to(elem.querySelector("h1"), {
-            scale:1,
+            scale: 1,
             opacity: 1,
             x: 0
         })
@@ -96,14 +96,37 @@ document.querySelectorAll(".elem").forEach(function (elem) {
             rotate: gsap.utils.clamp(-20, 20, difference)
         })
         gsap.to(elem.querySelector("h1"), {
-    scale: 1.2,
-    opacity: 0.3,
-    x: 100, // Move 100px to the right
-    ease: "power2.out" // Smooth easing
-});
+            scale: 1.2,
+            opacity: 0.3,
+            x: 100, // Move 100px to the right
+            ease: "power2.out" // Smooth easing
+        });
 
     })
 })
+
+function updateTime() {
+    const timeElement = document.getElementById("liveTime");
+    const now = new Date();
+
+    let hours = now.getHours();
+    const minutes = now.getMinutes();
+    const seconds = now.getSeconds();
+    const ampm = hours >= 12 ? 'PM' : 'AM';
+
+    hours = hours % 12;
+    hours = hours ? hours : 12; // 0 should be 12
+
+    const formattedTime =
+        `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')} ${ampm}`;
+
+    timeElement.textContent = formattedTime;
+}
+
+setInterval(updateTime, 1000);
+
+
+updateTime(); // initial call
 cursorSqueeze()
 cursorFollower()
 firstPageAnimation()
